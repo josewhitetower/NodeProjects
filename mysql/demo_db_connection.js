@@ -28,6 +28,6 @@ con.connect((err)=>{
   ];
   con.query("SELECT * FROM customers",(err,result,fields)=>{
     if (err) throw err;
-    console.log(fields);
+    console.log(result);
   });
 });
