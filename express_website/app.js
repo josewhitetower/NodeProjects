@@ -1,20 +1,21 @@
 var express=require('express');
-var path = require('path');
+var path = require('path'); //Built-in Module
 var bodyParser= require('body-parser');
-var nodemailer= require('nodemailer');
+var nodemailer= require('nodemailer'); //Module to send emails
 
-var app= express();
+var app= express(); // Intilialize Express App
 var title='Welcome...';
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views')); // Views Directory, there are the .jade files
+app.set('view engine', 'jade'); // Jade as View Engine
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/', function (req, res) {
- res.render('index', {title: title } );
+ res.render('index', {title: title } ); //Render the index view
+// res.send('Hello World') Send it to the client
 });
 
 app.get('/about', function (req, res) {
@@ -25,7 +26,7 @@ app.get('/contact', function (req, res) {
  res.render('contact', {title: title });
 });
 
-app.post('/contact/send', function (req, res) {
+app.post('/contact/send', function (req, res) { //After the action 'contact/send'
  var transporter= nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -53,5 +54,5 @@ var mailOptions={
     }
   });
 });
-app.listen(3000);
+app.listen(3000); // Listening port
 console.log('Server running on port 3000');

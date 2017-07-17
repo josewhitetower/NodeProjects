@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register',{title:'Register'});
+  res.render('register',{title:'Register'}); //redirect to a view
 });
 
 router.get('/login', function(req, res, next) {

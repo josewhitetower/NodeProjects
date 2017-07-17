@@ -1,10 +1,10 @@
-const http = require('http');
+const http = require('http'); //importar Modulos, en este caso Built-in Modulos
 
 const url =require('url');
 const path = require('path');
 const fs = require('fs');
 
-const mimeTypes={
+const mimeTypes={ // Tipos de datos
   "html":"text/html",
   "jpeg":"image/jpeg",
   "jpg":"image/jpg",
@@ -14,7 +14,9 @@ const mimeTypes={
 };
 
 http.createServer(function(req, res){
-  var uri = url.parse(req.url).pathname;
+  var uri = url.parse(req.url).pathname;// will return the path name of the host followed by '/'//For example:
+                                        //var pathname = url.parse(https://nodejs.org/docs/latest/api/url.html).pathname
+                                         //will return "/docs//latest/api/url.html"
   var fileName= path.join(process.cwd(), unescape(uri));
   console.log('Loading '+ uri);
   var stats;
