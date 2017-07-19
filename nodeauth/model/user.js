@@ -1,3 +1,4 @@
+//This is a model, ORM is here implemented
 var mongoose=require('mongoose');
 var bodyParser = require('body-parser');
 var bcrypt = require('bcryptjs');
@@ -9,7 +10,7 @@ mongoose.connect('mongodb://localhost/nodeauth', {
 
 var db= mongoose.connection;
 
-//User Schema
+//User Schema, it will create the tables and it columns, the datatype will also defined
 var UserSchema = mongoose.Schema({
   username:{
       type: String,
@@ -30,6 +31,23 @@ var UserSchema = mongoose.Schema({
 });
 
 var User = module.exports= mongoose.model('User', UserSchema);//To use it outside this file
+
+module.exports.getUserById = function(id, callback){
+  User.findById(id, callback);
+}
+
+module.exports.getUserByUsername = function(username, callback){
+  var query={username: username};
+  User.findOne(query, callback);
+
+}
+module.exports.comparePassword= function(canditatePassword, hash, callback){
+  // Load hash from your password DB.
+bcrypt.compare(canditatePassword, hash, function(err, isMatch) {
+    callback(null,isMatch);
+});
+}
+
 
 module.exports.createUser=function(newUser, callback){ //This function will aviable from outside
   bcrypt.genSalt(10, function(err, salt) {
