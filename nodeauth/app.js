@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session=require('express-session');
-var passport= require('passport');
+var passport= require('passport'); //AUTH Modul
 var expressValidator=require('express-validator');
 var LocalStrategy=require('passport-local').Strategy;
 var multer=require('multer');
@@ -71,6 +71,12 @@ app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   next();
 });
+
+//user variable, will be used on templates to show/unshow links(sessions)
+app.get('*', function(req, res, next){
+  res.locals.user=req.user || null;
+  next();
+})
 
 app.use('/', index);
 app.use('/users', users);
