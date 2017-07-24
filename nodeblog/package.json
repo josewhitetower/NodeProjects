@@ -14,13 +14,13 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
-    "jade": "~1.11.0",
     "moment": "*",
     "mongodb": "*",
-    "monk": "^1.0.1",
+    "monk":"*",
     "monk": "https://github.com/vccabral/monk.git",
     "morgan": "~1.8.1",
     "multer": "*",
+    "pug": "^2.0.0-rc.2",
     "serve-favicon": "~2.4.2"
   }
 }
