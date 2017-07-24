@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var session=require('express-session');
 var multer=require('multer');              //To Upload files
 var upload = multer({ dest: 'uploads/' })  // and their destinations
-var moment=require('moment');
+
 var expressValidator=require('express-validator');
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
@@ -16,6 +16,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+app.locals.moment=require('moment'); // To make the moment globally 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

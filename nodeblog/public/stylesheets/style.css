@@ -11,6 +11,7 @@ body {
 .container{
   width: 750px;
   border: 1px solid #ccc;
+  margin:20px auto;
   padding: 20px;
   border-top: #83cd39 3px solid;
 }
@@ -58,4 +59,35 @@ nav a {
 nav a.current nav a:hover{
 background: #83cd29;
 color: #000
+}
+
+.post a{
+  color: #666;
+ 
+}
+
+a.more{
+  display: block;
+  width: 80px;
+  background: #404137;
+  color: #fff;
+  padding:10px;
+  margin-top: 30px;
+  text-decoration: none;
+}
+.post{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.meta{
+  padding: 7px;
+  border: 1px solid #ccc;
+  background: #ccc;
+  margin-bottom: 10px;
+}
+
+.post h1 a{
+  color: #666;
+  text-decoration: none;
 }

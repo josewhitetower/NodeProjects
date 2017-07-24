@@ -1,0 +1,2 @@
+after npm install -g express & npm -g express-router
+express nodeblog : it will create a project
