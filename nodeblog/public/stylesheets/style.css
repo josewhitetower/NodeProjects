@@ -121,3 +121,12 @@ textarea {
     height: 70px;
     width: 400px;
 }
+
+.form-group,
+#cke_body {
+    padding: 10px 0 10px 0;
+}
+
+label {
+    padding-bottom: 10px;
+}
