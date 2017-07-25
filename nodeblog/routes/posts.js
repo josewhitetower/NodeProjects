@@ -37,7 +37,7 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
     var errors = req.validationErrors();
     if (errors) {
         res.render('addpost', {
-            'errors': errors
+            "errors": errors
         });
     } else {
         var post = db.get('posts');
