@@ -1,2 +1,10 @@
 after npm install -g express & npm -g express-router
 express nodeblog : it will create a project
+
+If you’ve accidentally checked in node_modules before, that’s okay. You can remove it like this:
+$ echo 'node_modules' >> .gitignore
+$ git rm -r --cached node_modules
+$ git commit -am 'ignore node_modules'
+I also ignore npm’s logs so they don’t clutter my code:
+$ echo 'npm-debug.log' >> .gitignore
+$ git commit -am 'ignore npm-debug'
