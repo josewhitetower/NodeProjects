@@ -7,4 +7,4 @@ $ git rm -r --cached node_modules
 $ git commit -am 'ignore node_modules'
 I also ignore npm’s logs so they don’t clutter my code:
 $ echo 'npm-debug.log' >> .gitignore
-$ git commit -am 'ignore npm-debug'
+$ git commit -am 'ignore npm-debug' 
