@@ -14,10 +14,10 @@ block content
             label Category:
             select.form-control(name='category')
                 each category, i in categories
-                    option(value='#{category.name}') #{category.name}
+                    option(value= category.name) #{category.name}
         .form-group
             label Body:
-            textarea.form-control(name='body', type='text', id='body')
+            textarea.form-control(name='body',id='body')
         .form-group
             label Main image:
             input.form-control(name='mainimage', type='file')   

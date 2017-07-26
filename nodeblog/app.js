@@ -20,8 +20,11 @@ var categories = require('./routes/categories');
 
 var app = express();
 app.locals.moment = require('moment'); // To make the moment globally 
-
-// view engine setup
+app.locals.truncateText = function(text, length) { //This is a function to truncate the text in the body
+        var truncatedText = text.substring(0, length);
+        return truncatedText;
+    }
+    // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -31,7 +34,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));// Statics files, imgs, styles, js, uploads, etc
+app.use(express.static(path.join(__dirname, 'public'))); // Statics files, imgs, styles, js, uploads, etc
 
 //Connect Flash
 app.use(require('connect-flash')());

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer'); //To Upload files
-var upload = multer({ dest: 'uploads/' }) // and their destinations
+var upload = multer({ dest: './public/images' }) // and their destinations
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
@@ -21,7 +21,7 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
     var title = req.body.title;
     var category = req.body.category;
     var body = req.body.body;
-    var author = req.body.title;
+    var author = req.body.author;
     var date = new Date();
     if (req.file) {
         var mainimage = req.file.filename

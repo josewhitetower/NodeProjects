@@ -8,3 +8,11 @@ $ git commit -am 'ignore node_modules'
 I also ignore npm’s logs so they don’t clutter my code:
 $ echo 'npm-debug.log' >> .gitignore
 $ git commit -am 'ignore npm-debug' 
+
+
+Pug 0.1.0 (Jade 2.x) removed support for interpolation in attributes, so this works now:
+
+input(type="text", name="date", value=viewpost.date)
+See https://github.com/pugjs/pug/issues/2305
+
+To parse the html add a !

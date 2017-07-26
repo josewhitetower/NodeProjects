@@ -3,6 +3,18 @@ var router = express.Router();
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
+//To show the posts of the category
+router.get('/show/:category', function(req, res, next) { //Dynamic, this is gonna be the id of the category
+    var posts = db.get('posts');
+    posts.find({ category: req.params.category }, {}, function(err, posts) {
+        res.render('index', { //from here will be necessary to create that template, wich can be found on views
+            'title': req.params.category,
+            'posts': posts
+        });
+    });
+});
+
+
 router.get('/add', function(req, res, next) {
     res.render('addcategory', {
         'title': 'Add Category' //Tile of the page (view)
