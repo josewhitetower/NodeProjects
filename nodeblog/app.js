@@ -31,7 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));// Statics files, imgs, styles, js, uploads, etc
 
 //Connect Flash
 app.use(require('connect-flash')());
