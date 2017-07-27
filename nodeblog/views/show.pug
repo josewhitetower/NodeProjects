@@ -1,0 +1,43 @@
+extends layout.pug
+
+block content
+    .post
+        h1
+        p.meta Posted in 
+            a(href='/categories/show/'+ post.category) #{post.category}
+            | 
+            |by #{post.author} 
+            |on #{moment(post.date).format("DD.MM.YYYY")}
+        img(src='/images/'+ post.mainimage)
+        !=post.body
+        br
+        hr
+        if post.comments
+            h3 Comments
+            each comment, i in post.comments
+                .comment
+                    p.comment-name #{comment.name}
+                    p.comment-body #{comment.body}
+                    p.comment-commentdate #{comment.commentdate}
+                br
+                hr
+        h3 Add comment
+        if errors
+            ul.errors
+                each error, i in errors
+                    li.alert.alert-danger #{error.msg}
+        form.comment-form(method='post', action='/posts/addcomment')
+            input(name='postid', type='hidden', value= post._id)
+            .form-grup
+                label Name 
+                input.form-control(type='text',name='name')
+            .form-grup
+                label Email 
+                input.form-control(type='text',name='email')
+            .form-grup
+                label Body 
+                textarea.form-control(type='text',name='body')
+            br
+            input.btn.btn-default(type='submit', name='submit', value='Add comment')
+
+    
