@@ -32,7 +32,7 @@ router.post('/add', function(req, res, next) {
     var errors = req.validationErrors();
 
     if (errors) {
-        res.render('addcaterogy', {
+        res.render('addcategory', {
             "errors": errors
         });
     } else { // Insert categories
