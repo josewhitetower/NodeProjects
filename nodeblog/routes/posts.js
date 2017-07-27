@@ -10,7 +10,7 @@ router.get('/add', function(req, res, next) {
     categories.find({}, {}, function(err, categories) {
         res.render('addpost', { //from here will be necessary to create that template, wich can be found on views
             'title': 'Add post',
-            'categories': categories
+            'categories': categories //Addpost template will already have the categories loaded
         });
     });
 

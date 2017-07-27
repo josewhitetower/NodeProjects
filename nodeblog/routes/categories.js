@@ -35,14 +35,14 @@ router.post('/add', function(req, res, next) {
         res.render('addcaterogy', {
             "errors": errors
         });
-    } else {
+    } else { // Insert categories
         var categories = db.get('categories');
         categories.insert({
             "name": name,
         }, function(err, post) {
             if (err) {
                 res.send(err);
-            } else {
+            } else { //Redirect
                 req.flash('success', 'Category Added');
                 res.location('/');
                 res.redirect('/');
