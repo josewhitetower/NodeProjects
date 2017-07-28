@@ -143,6 +143,18 @@ ul.success li {
     list-style: none;
 }
 
+ul.errors li {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 4px;
+    list-style: none;
+}
+
 .post img {
     width: 100%
 }

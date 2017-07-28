@@ -4,7 +4,6 @@ var multer = require('multer'); //To Upload files
 var upload = multer({ dest: './public/images' }) // and their destinations
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
-
 router.get('/show/:id', function(req, res, next) {
     var posts = db.get('posts');
     posts.findById(req.params.id, function(err, post) {
@@ -48,7 +47,7 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
     var errors = req.validationErrors();
     if (errors) {
         res.render('addpost', {
-            "errors": errors
+            "errors": errors,
         });
     } else {
         var post = db.get('posts');
@@ -62,7 +61,7 @@ router.post('/add', upload.single('mainimage'), function(req, res, next) {
 
         }, function(err, post) {
             if (err) {
-                res.send('err');
+                res.send('Theres is an issue submitting this post');
             } else {
                 req.flash('success', 'Post added');
                 res.location('/');

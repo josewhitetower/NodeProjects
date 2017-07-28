@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
-
 //To show the posts of the category
 router.get('/show/:category', function(req, res, next) { //Dynamic, this is gonna be the id of the category
     var posts = db.get('posts');

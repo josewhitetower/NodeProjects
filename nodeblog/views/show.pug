@@ -2,7 +2,7 @@ extends layout.pug
 
 block content
     .post
-        h1
+        h1 #{post.title}
         p.meta Posted in 
             a(href='/categories/show/'+ post.category) #{post.category}
             | 
