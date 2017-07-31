@@ -12,7 +12,7 @@ block body
                 each event, i in data
                     li
                         strong #{event.name} -
-                        | Posted by #{event.suername}
+                        | Posted by #{event.username}
                         p #{event.description}
                         a(href='/events/show/#{event.id}', class='btn btn-default') Read More
         div.col-sm-4
