@@ -2,7 +2,7 @@
 
 exports = module.exports = function(app, mongoose) {
     var eventSchema = new mongoose.Schema({
-        _id: { type: String },
+
         pivot: { type: String, default: '' },
         name: { type: String, required: true },
         description: { type: String },
