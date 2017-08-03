@@ -16,3 +16,5 @@ input(type="text", name="date", value=viewpost.date)
 See https://github.com/pugjs/pug/issues/2305
 
 To parse the html add a !
+
+Spiegel!
